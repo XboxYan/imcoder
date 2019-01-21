@@ -1,16 +1,12 @@
 :root{
-  --themeColor:#f45940;
+  --themeColor:#ff6767;
   --bgColor:#fff;
   --fontColor:#666;
   --fontSubColor:#999;
+  --contentfontColor:#fff;
+  --contentbgColor:#f1f1f4;
 }
 .App {
   height: 100%;
   background-color: var(--bgColor);
-}
-.switch:checked+label{
-  --bgColor:#f45940;
-}
-label{
-  color: var(--bgColor);
 }

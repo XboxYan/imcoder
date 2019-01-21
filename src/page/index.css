@@ -1,0 +1,36 @@
+.mes-list{
+    padding: 15px;
+}
+.mes-content{
+    padding: 10px 15px;
+    border-radius: 0 10px 10px 10px;
+    align-self: center;
+    line-height: 1.5em;
+    background-color: var(--themeColor);
+}
+.mes-avator{
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 50px;
+    background: #999;
+}
+.mes-item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    color: var(--contentfontColor)
+}
+.mes-item[data-self=true]{
+    flex-direction: row-reverse;
+    color: var(--fontColor)
+}
+.mes-item[data-self=true] .mes-avator{
+    display: none;
+}
+.mes-item[data-self=true] .mes-content{
+    border-radius: 10px 0 10px 10px;
+    background-color: var(--contentbgColor);
+}

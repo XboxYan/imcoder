@@ -6,9 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <input className="switch" id="switch" type="checkbox" />
-      <label htmlFor="switch" >开关</label>
-      <Conversation/>
+        <Conversation/>
       </div>
     );
   }
