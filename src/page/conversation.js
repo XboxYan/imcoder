@@ -3,6 +3,8 @@
  */
 
 import React,{ useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/styles/prism';
 import './index.css';
 
 const testList = [
@@ -39,7 +41,7 @@ const testList = [
         }
     },
     {
-        message:'44就看就看家看看叫进空间即可就看',
+        message:`<div><span>222</span></div>`,
         id:4,
         user:{
             userId:1,
@@ -58,7 +60,7 @@ export default () => {
                 list.map(d=>(
                     <div key={d.id} className="mes-item" data-self={d.user.userId===2}>
                         <div className="mes-avator">{d.user.userName[0]}</div>
-                        <div className="mes-content">{d.message}</div>
+                        <SyntaxHighlighter className="mes-content" language='javascript' style={atomDark}>{d.message}</SyntaxHighlighter>
                     </div>
                 ))
             }
