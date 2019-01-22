@@ -1,14 +1,22 @@
+.mes-body{
+    height: 100%;
+}
+.mes-right{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .mes-list{
+    flex:1;
     padding: 15px;
+    overflow: auto;
 }
 .mes-content{
-    padding: 10px 15px;
     border-radius: 0 10px 10px 10px!important;
     align-self: center;
     line-height: 1.5em;
-    margin: 0!important;
     white-space: pre-wrap;
-    background-color: var(--themeColor);
+    overflow: hidden;
 }
 .mes-avator{
     min-width: 50px;
@@ -17,7 +25,9 @@
     margin-right: 10px;
     text-align: center;
     line-height: 50px;
-    background: #999;
+    font-size: 20px;
+    background: var(--headerColor);
+    color: var(--theme);
 }
 .mes-item{
     display: flex;
@@ -34,6 +44,75 @@
     display: none;
 }
 .mes-item[data-self=true] .mes-content{
-    border-radius: 10px 0 10px 10px!important;
-    background-color: var(--contentbgColor);
+    border-radius: 10px 10px 0 10px!important;
+}
+.mes-item[data-self=true] .mes-txt{
+    background: var(--contentbgColor);
+}
+.mes-content>pre{
+    margin: 0!important;
+}
+.mes-code{
+    padding: 10px 15px;
+}
+.mes-txt{
+    margin: 0;
+    background: var(--themeColor);
+    padding: 10px 15px;
+    white-space: pre-wrap;
+}
+.mes-input-con{
+    margin: 15px;
+    background: var(--contentbgColor);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    color: var(--fontColor);
+    flex-direction: row;
+    align-items: center;
+}
+.mes-input{
+    background: transparent;
+    margin: 10px 15px;
+    border: 0;
+    outline: 0;
+    flex: 1;
+    max-height: 150px;
+    overflow: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    /* -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    user-modify: read-write; */
+    -webkit-user-modify: read-write-plaintext-only;
+    -moz-user-modify: read-write-plaintext-only;
+    font-family: inherit;
+}
+.icon-btn{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    line-height: 0;
+    font-size: 24px;
+    transition: .3s;
+    color:inherit;
+    opacity: .6;
+}
+.mes-input:empty::before{
+    content: attr(placeholder);
+    opacity: .6;
+}
+.mes-input:empty+.icon-btn{
+    visibility: hidden;
+    opacity: 0;
+}
+.icon-btn:hover{
+    opacity: .8;
+}
+.mes-input blockquote{
+    margin: 0 0 0 2em!important;
+    border: none;
+    padding: 0px;
 }
