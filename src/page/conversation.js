@@ -9,7 +9,7 @@ import './index.css';
 
 const testList = [
     {
-        message:'00就看就看家看看叫进空间即可就看',
+        message:'Many of the methods above return change objects. These objects consist of the following fields',
         type:0,
         id:0,
         user:{
@@ -18,7 +18,7 @@ const testList = [
         }
     },
     {
-        message:'11就看就看家看看叫进空间即可就看11就看就看家看看叫进空间即可就看11就看就看家看看叫进空间即可就看11就看就看家看看叫进空间即可就看11就看就看家看看叫进空间即可就看',
+        message:'Many of the methods above return change objects. These objects consist of the following fields Many of the methods above return change objects. These objects consist of the following fields',
         id:1,
         type:0,
         user:{
@@ -27,16 +27,28 @@ const testList = [
         }
     },
     {
-        message:'22就看就看家看看叫进空间即可就看',
+        message:` <div>
++    <div>1w</div>
+     <div>1</div>
+-    <div>1</div>
+-    <div>3</div>
++    <div>3ss</div>
+     <div>4</div>
+     <div>
+         <span>4444</span>
+-        <p>4444</p>
++        <span>1</span>
+     </div> 
+ </div>`,
         id:2,
-        type:0,
+        type:1,
         user:{
             userId:1,
             userName:'Bill'
         }
     },
     {
-        message:'33就看就看家看看叫进空间即可就看',
+        message:'hello',
         id:3,
         type:0,
         user:{
@@ -45,20 +57,15 @@ const testList = [
         }
     },
     {
-        message:`.mes-item[data-self=true] .mes-content{
-            border-radius: 10px 0 10px 10px!important;
-            background-color: var(--contentbgColor);
-        }
-        .mes-code>pre{
-            margin: 0!important;
-        }
-        .mes-code>pre>code{
-            padding: 10px 15px;
-        }
-        .mes-txt{
-            margin: 0;
-            padding: 10px 15px;
-        }`,
+        message:`- class App extends Component {
+-            render() {
+-              return (
++              <div className="App">
+                  <Conversation/>
++              </div>
+              );
+            }
+          }`,
         id:4,
         type:1,
         user:{

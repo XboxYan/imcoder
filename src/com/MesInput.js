@@ -25,18 +25,18 @@ export default (props) => {
             }
             return false;
         }
-        if (ev.keyCode === 9) {
-            ev.preventDefault();
-            //tab
-            if(ev.shiftKey){
-                // ctrl+enter
-                document.execCommand("outdent")
-            }else{
-                // enter
-                document.execCommand("indent", false, null)
-            }
-            return false;
-        }
+        // if (ev.keyCode === 9) {
+        //     ev.preventDefault();
+        //     //tab
+        //     if(ev.shiftKey){
+        //         // ctrl+enter
+        //         document.execCommand("outdent")
+        //     }else{
+        //         // enter
+        //         document.execCommand("indent", false, null)
+        //     }
+        //     return false;
+        // }
     }
 
     return (
