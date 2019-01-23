@@ -5,6 +5,8 @@ import {
     MdSend
 } from "react-icons/md";
 
+import CodeEdit from './CodeEdit';
+
 export default (props) => {
 
     const onPaste = (ev) => {
@@ -41,8 +43,9 @@ export default (props) => {
 
     return (
         <div className="mes-input-con">
+            <CodeEdit/>
             <button className="icon-btn"><MdSentimentSatisfied /></button>
-            <div className="mes-input" contentEditable={true} onKeyDown={onKeyDown} onPaste={onPaste} placeholder="输入内容" />
+            <div className="mes-input" spellCheck={false} contentEditable={true} onKeyDown={onKeyDown} onPaste={onPaste} placeholder="输入内容" />
             <button className="icon-btn"><MdSend /></button>
         </div>
     )

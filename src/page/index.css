@@ -136,3 +136,38 @@
     z-index: -1;
     opacity: .05;
 }
+.code-edit{
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 500px;
+    transform: translate(-50%,-50%);
+}
+.code-edit .CodeMirror pre{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.code-edit::-webkit-scrollbar{
+    background: rgba(255,255,255,.5);
+}
+.code-edit .CodeMirror-scroll{
+    overflow: auto!important;
+    margin: 0;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+.code-edit .CodeMirror-hscrollbar,
+.code-edit .CodeMirror-vscrollbar,
+.code-edit .CodeMirror-gutter-filler,
+.code-edit .CodeMirror-scrollbar-filler{
+    display: none!important;
+}
+.code-edit .CodeMirror-scroll::-webkit-scrollbar{
+    background: rgba(255,255,255,.5);
+}
+.code-edit .cm-s-material .CodeMirror-matchingbracket {
+    text-decoration: none;
+    background: rgba(255,255,255,.2);
+}
