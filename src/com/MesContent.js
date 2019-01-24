@@ -66,7 +66,7 @@ export default (props) => {
                 children="div"
                 wrapLines={true}
                 //lineProps ={markLine}
-                language="diff" 
+                language="JavaScript" 
                 //showLineNumbers={true}
             >
                 {props.message}

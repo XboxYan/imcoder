@@ -10,7 +10,7 @@
 .mes-list{
     flex:1;
     padding: 15px;
-    padding-bottom: 200px;
+    padding-bottom: 250px;
     overflow: auto;
 }
 .mes-content{
@@ -113,7 +113,7 @@
     border: 0;
     outline: 0;
     flex: 1;
-    max-height: 150px;
+    max-height: 200px;
     overflow: auto;
     white-space: pre-wrap;
     font-size: 14px;
@@ -129,9 +129,11 @@
     border: 0;
     outline: 0;
     padding: 0;
+    display: flex;
     cursor: pointer;
-    line-height: 0;
     margin: 0 5px;
+    justify-content: center;
+    align-items: center;
     font-size: 24px;
     transition: .3s;
     color:inherit;
@@ -149,9 +151,6 @@
 .icon-float .icon-btn{
     width: 40px;
     height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
     border-radius: 50%;
     background: var(--contentbgColor)
@@ -159,9 +158,6 @@
 .icon-wrap{
     transition: .3s;
     transform: translate3d(0,-24px,0);
-}
-.icon-wrap .icon-btn{
-    display: block;
 }
 .mes-input:empty::before{
     content: attr(placeholder);
@@ -175,7 +171,7 @@
     color: var(--theme);
 }
 .icon-lan{
-    font-size: 16px;
+    font-size: 14px;
 }
 .mes-input blockquote{
     margin: 0 0 0 2em!important;
@@ -227,8 +223,8 @@
 .code-edit .CodeMirror-scroll{
     overflow: auto!important;
     margin: 0;
-    padding: 15px;
-    max-height: 150px;
+    padding: 15px 0;
+    max-height: 200px;
     box-sizing: border-box;
 }
 .code-edit .CodeMirror-hscrollbar,
@@ -236,6 +232,9 @@
 .code-edit .CodeMirror-gutter-filler,
 .code-edit .CodeMirror-scrollbar-filler{
     display: none!important;
+}
+.code-edit  .CodeMirror-sizer{
+    margin-bottom: 0!important;
 }
 .code-edit .CodeMirror-scroll::-webkit-scrollbar{
     background: rgba(255,255,255,.5);

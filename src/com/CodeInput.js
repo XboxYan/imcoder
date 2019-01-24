@@ -20,7 +20,7 @@ export default (props) => {
                     theme: 'neo',
                     placeholder:'请输入...',
                     keyMap: 'sublime',
-                    lineNumbers: true,
+                    lineNumbers: false,
                     dragDrop: true,
                     mode: 'jsx',
                 }}
