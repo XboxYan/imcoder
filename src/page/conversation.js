@@ -57,15 +57,19 @@ const testList = [
         }
     },
     {
-        message:`- class App extends Component {
--            render() {
--              return (
-+              <div className="App">
-                  <Conversation/>
-+              </div>
-              );
-            }
-          }`,
+        message:`#import <UIKit/UIKit.h>
+#import "Dependency.h"
+
+@protocol WorldDataSource
+@optional
+- (NSString*)worldName;
+@required
+- (BOOL)allowsToLive;
+@end
+
+@property (nonatomic, readonly) NSString *title;
+- (IBAction) show;
+@end`,
         id:4,
         type:1,
         user:{

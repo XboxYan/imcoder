@@ -1,8 +1,9 @@
 import React from 'react';
-import * as Diff from 'diff'
 import SyntaxHighlighter  from 'react-syntax-highlighter';
+import diff from '../util/diff'
 //import { atomOneDark } from 'react-syntax-highlighter/dist/styles/hljs';
 import 'highlight.js/styles/atom-one-dark.css';
+
 var one = 
 `<div>
     <div>1</div>
@@ -26,21 +27,21 @@ var other =
     </div> 
 </div>`;
 
-var diff = Diff.diffLines(one, other);
+// var diff = Diff.diffLines(one, other);
+// const a = diff(one, other)
+// console.log(a)
 
-console.log(diff)
+// var newer = '';
 
-var newer = '';
+// diff.forEach(function(part){
+//     var pre = (part.added&&'+') || (part.removed&&'-') || ' ';
+//     var value = part.value.replace(/[^\n]+/g,function(matches, $1){
+//         return pre + matches
+//     })
+//     newer+= value
+// });
 
-diff.forEach(function(part){
-    var pre = (part.added&&'+') || (part.removed&&'-') || ' ';
-    var value = part.value.replace(/[^\n]+/g,function(matches, $1){
-        return pre + matches
-    })
-    newer+= value
-});
-
-console.log(newer)
+// console.log(newer)
 
 // var s = ' '+newer.replace(/\n/g,'\n ').replace(/\n \+/g,'\n\+').replace(/\n \-/g,'\n\-')
 
@@ -66,7 +67,7 @@ export default (props) => {
                 children="div"
                 wrapLines={true}
                 //lineProps ={markLine}
-                language="JavaScript" 
+                language="objectivec" 
                 //showLineNumbers={true}
             >
                 {props.message}
