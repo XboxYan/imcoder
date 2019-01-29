@@ -10,8 +10,11 @@
 .mes-list{
     flex:1;
     padding: 15px;
-    padding-bottom: 250px;
     overflow: auto;
+    scroll-behavior:smooth;
+}
+.mes-space{
+    height: 250px;
 }
 .mes-content{
     align-self: center;

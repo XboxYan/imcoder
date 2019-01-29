@@ -73,7 +73,11 @@ export default (props) => {
             value = textEdit.current.innerText;
         }
         console.log(value)
-        //props.onComfirm&&props.onComfirm(value);
+        props.onComfirm&&props.onComfirm({
+            message:value,
+            type:codeMode?1:0,
+            language:language
+        });
     }
 
     const onKeyDown = (ev) => {

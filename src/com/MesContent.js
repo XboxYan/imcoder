@@ -59,7 +59,7 @@ const markLine = (lineNumber) => {
 
 export default (props) => {
 
-    if(props.type === 1){
+    if(props.data.type === 1){
         return (
             <SyntaxHighlighter 
                 //style={atomOneDark} 
@@ -67,12 +67,12 @@ export default (props) => {
                 children="div"
                 wrapLines={true}
                 //lineProps ={markLine}
-                language="objectivec" 
+                language={props.data.language}
                 //showLineNumbers={true}
             >
-                {props.message}
+                {props.data.message}
             </SyntaxHighlighter>
        )    
     }
-    return <p className="mes-txt">{props.message}</p>
+    return <p className="mes-txt">{props.data.message}</p>
 }
