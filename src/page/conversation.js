@@ -2,56 +2,51 @@
  * main
  */
 
-import React,{ useState } from 'react';
+import React, { PureComponent } from 'react';
 import MesList from '../com/MesList';
 import MesInput from '../com/MesInput';
 import './index.css';
 
-let meslist = [];
+export default class extends PureComponent {
 
-export default ({socket,user}) => {
+    state = {
+        list:[]
+    }
 
-    const [init, setInit] = useState(false);
-
-    const [list, setList] = useState([]);
-
-    const onComfirm = (data) => {
-        socket.emit('UPDATA_MESSAGE',{
+    onComfirm = (data) => {
+        const {socket,user} = this.props;
+        socket.emit('UPDATA_MESSAGE', {
             ...data,
-            id:new Date().valueOf() + Math.floor(Math.random()*1000),
-            user:{
-                userId:user,
-                userName:user
+            id: new Date().valueOf() + Math.floor(Math.random() * 1000),
+            user: {
+                userId: user,
+                userName: user
             }
         })
     }
 
-    const updataMes = (mes) => {
-        meslist.push(mes);
-        setList(meslist);
-    }
-
-    const initMes = (list) => {
-        meslist = list;
-        setList(list);
-    }
-
-    if(!init){
-        setInit(true);
-        socket.on('INIT',(list)=>{
-            initMes(list);
+    componentDidMount() {
+        const {socket} = this.props;
+        socket.on('INIT', (list) => {
+            this.setState({list});
         })
-        socket.on('UPDATA_MESSAGE',(msg)=>{
-            updataMes(msg);
+        socket.on('UPDATA_MESSAGE', (msg) => {
+            const {list} = this.state;
+            this.setState({list:[...list,msg]});
         })
     }
 
-    return (
-        <div className="mes-body">
-            <div className="mes-right">
-                <MesList data={list} user={user} />
-                <MesInput onComfirm={onComfirm}/>
+
+    render() {
+        const {list} = this.state;
+        const {user} = this.props;
+        return (
+            <div className="mes-body">
+                <div className="mes-right">
+                    <MesList data={list} user={user} />
+                    <MesInput onComfirm={this.onComfirm} />
+                </div>
             </div>
-        </div>
-    )
+        );
+    }
 }
