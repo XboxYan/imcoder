@@ -1,6 +1,10 @@
 import React from 'react';
 import SyntaxHighlighter  from 'react-syntax-highlighter';
-import diff from '../util/diff'
+import diff from '../util/diff';
+import {
+    MdContentCopy,
+    MdReply
+} from "react-icons/md";
 //import { atomOneDark } from 'react-syntax-highlighter/dist/styles/hljs';
 import 'highlight.js/styles/atom-one-dark.css';
 
@@ -61,17 +65,23 @@ export default (props) => {
 
     if(props.data.type === 1){
         return (
-            <SyntaxHighlighter 
-                //style={atomOneDark} 
-                useInlineStyles={false}
-                children="div"
-                wrapLines={true}
-                //lineProps ={markLine}
-                language={props.data.language}
-                //showLineNumbers={true}
-            >
-                {props.data.message}
-            </SyntaxHighlighter>
+            <div className="mes-inner">
+                <SyntaxHighlighter 
+                    //style={atomOneDark} 
+                    useInlineStyles={false}
+                    wrapLines={true}
+                    //lineProps ={markLine}
+                    language={props.data.language}
+                    //showLineNumbers={true}
+                >
+                    {props.data.message}
+                </SyntaxHighlighter>
+                <div className="mes-action" >
+                    <i className="mes-action-btn"><MdContentCopy /></i>
+                    <i className="mes-action-btn"><MdReply /></i>
+                    <i className="mes-action-btn"><MdContentCopy /></i>
+                </div>
+            </div>
        )    
     }
     return <p className="mes-txt">{props.data.message}</p>
