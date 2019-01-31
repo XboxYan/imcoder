@@ -1,4 +1,4 @@
-import React,{ useState,useRef } from 'react';
+import React,{ useState,useRef,useEffect } from 'react';
 import {
     MdCode,
     MdTextFormat,
@@ -72,13 +72,26 @@ export default (props) => {
         }else{
             value = textEdit.current.innerText;
         }
-        console.log(value)
         props.onComfirm&&props.onComfirm({
             message:value,
             type:codeMode?1:0,
             language:language
         });
     }
+
+    useEffect(()=>{
+        if(props.msg.id){
+            const {language,type,message} = props.msg;
+            setlanguage(language);
+            if(type===1){
+                setcodeMode(true);
+                codeEdit.current.edit.editor.setValue(message);
+            }else{
+                setcodeMode(false);
+                textEdit.current.innerText = message;
+            }
+        }
+    },[props.msg])
 
     const onKeyDown = (ev) => {
         if (ev.keyCode === 13) {

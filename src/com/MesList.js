@@ -18,7 +18,7 @@ export default (props) => {
                     <div key={d.id} className="mes-item" data-self={d.user.userId===props.user}>
                         <div className="mes-avator">{d.user.userName[0]}</div>
                         <div  className="mes-content">
-                            <MesContent data={d} />
+                            <MesContent data={d} onSetMsg={props.onSetMsg} />
                         </div>
                     </div>
                 ))
