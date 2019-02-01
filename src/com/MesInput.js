@@ -4,11 +4,11 @@ import {
     MdTextFormat,
     MdSentimentSatisfied,
     MdSend
-} from "react-icons/md";
+} from 'react-icons/md';
 
 import CodeInput from './CodeInput';
 
-const languages = ["APL", "PGP", "ASN.1", "Asterisk", "Brainfuck", "C", "C++", "Cobol", "C#", "Clojure", "ClojureScript", "CMake", "CoffeeScript", "Common Lisp", "Cypher", "Cython", "Crystal", "CSS", "CQL", "D", "Dart", "diff", "Django", "Dockerfile", "DTD", "Dylan", "EBNF", "ECL", "edn", "Eiffel", "Elm", "Embedded Javascript", "Embedded Ruby", "Erlang", "Esper", "Factor", "FCL", "Forth", "Fortran", "F#", "Gas", "Gherkin", "Go", "Groovy", "HAML", "Haskell", "Haxe", "HXML", "ASP.NET", "HTML", "HTTP", "IDL", "Pug", "Java", "Java Server Pages", "JavaScript", "JSON", "JSX", "Julia", "Kotlin", "LESS", "LiveScript", "Lua", "Markdown", "mIRC", "MariaDB SQL", "Mathematica", "Modelica", "MUMPS", "MS SQL", "mbox", "MySQL", "Nginx", "NSIS", "NTriples", "Objective-C", "OCaml", "Octave", "Oz", "Pascal", "PEG.js", "Perl", "PHP", "Pig", "Plain Text", "PLSQL", "PowerShell", "Properties files", "ProtoBuf", "Python", "Puppet", "Q", "R", "reStructuredText", "RPM Changes", "RPM Spec", "Ruby", "Rust", "SAS", "Sass", "Scala", "Scheme", "SCSS", "Shell", "Sieve", "Slim", "Smalltalk", "Smarty", "Solr", "SML", "Soy", "SPARQL", "Spreadsheet", "SQL", "SQLite", "Squirrel", "Stylus", "Swift", "sTeX", "LaTeX", "SystemVerilog", "Tcl", "Textile", "TiddlyWiki ", "Tiki wiki", "TOML", "Tornado", "troff", "TTCN", "TTCN_CFG", "Turtle", "TypeScript", "Twig", "Web IDL", "VB.NET", "VBScript", "Velocity", "Verilog", "VHDL", "Vue.js Component", "XML", "XQuery", "Yacas", "YAML", "Z80", "mscgen", "xu", "msgenny"]
+const languages = ['APL', 'PGP', 'ASN.1', 'Asterisk', 'Brainfuck', 'C', 'C++', 'Cobol', 'C#', 'Clojure', 'ClojureScript', 'CMake', 'CoffeeScript', 'Common Lisp', 'Cypher', 'Cython', 'Crystal', 'CSS', 'CQL', 'D', 'Dart', 'diff', 'Django', 'Dockerfile', 'DTD', 'Dylan', 'EBNF', 'ECL', 'edn', 'Eiffel', 'Elm', 'Embedded Javascript', 'Embedded Ruby', 'Erlang', 'Esper', 'Factor', 'FCL', 'Forth', 'Fortran', 'F#', 'Gas', 'Gherkin', 'Go', 'Groovy', 'HAML', 'Haskell', 'Haxe', 'HXML', 'ASP.NET', 'HTML', 'HTTP', 'IDL', 'Pug', 'Java', 'Java Server Pages', 'JavaScript', 'JSON', 'JSX', 'Julia', 'Kotlin', 'LESS', 'LiveScript', 'Lua', 'Markdown', 'mIRC', 'MariaDB SQL', 'Mathematica', 'Modelica', 'MUMPS', 'MS SQL', 'mbox', 'MySQL', 'Nginx', 'NSIS', 'NTriples', 'Objective-C', 'OCaml', 'Octave', 'Oz', 'Pascal', 'PEG.js', 'Perl', 'PHP', 'Pig', 'Plain Text', 'PLSQL', 'PowerShell', 'Properties files', 'ProtoBuf', 'Python', 'Puppet', 'Q', 'R', 'reStructuredText', 'RPM Changes', 'RPM Spec', 'Ruby', 'Rust', 'SAS', 'Sass', 'Scala', 'Scheme', 'SCSS', 'Shell', 'Sieve', 'Slim', 'Smalltalk', 'Smarty', 'Solr', 'SML', 'Soy', 'SPARQL', 'Spreadsheet', 'SQL', 'SQLite', 'Squirrel', 'Stylus', 'Swift', 'sTeX', 'LaTeX', 'SystemVerilog', 'Tcl', 'Textile', 'TiddlyWiki ', 'Tiki wiki', 'TOML', 'Tornado', 'troff', 'TTCN', 'TTCN_CFG', 'Turtle', 'TypeScript', 'Twig', 'Web IDL', 'VB.NET', 'VBScript', 'Velocity', 'Verilog', 'VHDL', 'Vue.js Component', 'XML', 'XQuery', 'Yacas', 'YAML', 'Z80', 'mscgen', 'xu', 'msgenny'];
 
 const ModelSelect = (props) => {
 
@@ -17,7 +17,7 @@ const ModelSelect = (props) => {
     const onSelect = (d) => (ev) => {
         props.setShow(false);
         props.onSelect && props.onSelect(d);
-    }
+    };
 
     const filter = (ev) => {
         const value = ev.target.value;
@@ -26,7 +26,7 @@ const ModelSelect = (props) => {
         } else {
             filterLanguagesList(languages);
         }
-    }
+    };
 
     return (
         <div className="model-con" data-show={props.show}>
@@ -37,8 +37,8 @@ const ModelSelect = (props) => {
             </div>
             <input className="model-search" onChange={filter} type="text" />
         </div>
-    )
-}
+    );
+};
 
 export default (props) => {
     const codeEdit = useRef(null);
@@ -53,32 +53,33 @@ export default (props) => {
 
     const onPaste = (ev) => {
         ev.preventDefault();
-        document.execCommand("insertText", false, ev.clipboardData.getData('text'));
-    }
+        document.execCommand('insertText', false, ev.clipboardData.getData('text'));
+    };
 
     const setMode = () => {
         setCodeMode(!codeMode);
-    }
+    };
 
     const selectModle = () => {
         setShow(!show);
-    }
+    };
 
     const send = () => {
-        let value = ''
+        let message;
+
         if (codeMode) {
-            value = codeEdit.current.edit.editor.getValue();
-            codeEdit.current.edit.editor.setValue("");
+            message = codeEdit.current.edit.editor.getValue();
+            codeEdit.current.edit.editor.setValue('');
         } else {
-            value = textEdit.current.innerText;
-            textEdit.current.innerText = "";
+            message = textEdit.current.innerText;
+            textEdit.current.innerText = '';
         }
-        props.onConfirm && props.onConfirm({
-            message: value,
+        !!message && props.onConfirm && props.onConfirm({
+            message,
             type: codeMode ? 1 : 0,
             language: language
         });
-    }
+    };
 
     useEffect(() => {
         if (props.msg.id) {
@@ -92,14 +93,14 @@ export default (props) => {
                 textEdit.current.innerText = message;
             }
         }
-    }, [props.msg])
+    }, [props.msg]);
 
     const onKeyDown = (ev) => {
         if (ev.keyCode === 13) {
             //enter
             if (ev.ctrlKey) {
                 // ctrl+enter
-                document.execCommand("insertText", false, "\n");
+                document.execCommand('insertText', false, '\n');
             } else {
                 // enter
                 ev.preventDefault();
@@ -119,7 +120,7 @@ export default (props) => {
         //     }
         //     return false;
         // }
-    }
+    };
 
     return (
         <div className="mes-input-con" data-code-mode={codeMode}>
@@ -153,5 +154,5 @@ export default (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
