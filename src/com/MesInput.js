@@ -1,4 +1,4 @@
-import React,{ useState,useRef,useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
     MdCode,
     MdTextFormat,
@@ -8,11 +8,11 @@ import {
 
 import CodeInput from './CodeInput';
 
-const languages = ["APL","PGP","ASN.1","Asterisk","Brainfuck","C","C++","Cobol","C#","Clojure","ClojureScript","CMake","CoffeeScript","Common Lisp","Cypher","Cython","Crystal","CSS","CQL","D","Dart","diff","Django","Dockerfile","DTD","Dylan","EBNF","ECL","edn","Eiffel","Elm","Embedded Javascript","Embedded Ruby","Erlang","Esper","Factor","FCL","Forth","Fortran","F#","Gas","Gherkin","Go","Groovy","HAML","Haskell","Haxe","HXML","ASP.NET","HTML","HTTP","IDL","Pug","Java","Java Server Pages","JavaScript","JSON","JSX","Julia","Kotlin","LESS","LiveScript","Lua","Markdown","mIRC","MariaDB SQL","Mathematica","Modelica","MUMPS","MS SQL","mbox","MySQL","Nginx","NSIS","NTriples","Objective-C","OCaml","Octave","Oz","Pascal","PEG.js","Perl","PHP","Pig","Plain Text","PLSQL","PowerShell","Properties files","ProtoBuf","Python","Puppet","Q","R","reStructuredText","RPM Changes","RPM Spec","Ruby","Rust","SAS","Sass","Scala","Scheme","SCSS","Shell","Sieve","Slim","Smalltalk","Smarty","Solr","SML","Soy","SPARQL","Spreadsheet","SQL","SQLite","Squirrel","Stylus","Swift","sTeX","LaTeX","SystemVerilog","Tcl","Textile","TiddlyWiki ","Tiki wiki","TOML","Tornado","troff","TTCN","TTCN_CFG","Turtle","TypeScript","Twig","Web IDL","VB.NET","VBScript","Velocity","Verilog","VHDL","Vue.js Component","XML","XQuery","Yacas","YAML","Z80","mscgen","xu","msgenny"]
+const languages = ["APL", "PGP", "ASN.1", "Asterisk", "Brainfuck", "C", "C++", "Cobol", "C#", "Clojure", "ClojureScript", "CMake", "CoffeeScript", "Common Lisp", "Cypher", "Cython", "Crystal", "CSS", "CQL", "D", "Dart", "diff", "Django", "Dockerfile", "DTD", "Dylan", "EBNF", "ECL", "edn", "Eiffel", "Elm", "Embedded Javascript", "Embedded Ruby", "Erlang", "Esper", "Factor", "FCL", "Forth", "Fortran", "F#", "Gas", "Gherkin", "Go", "Groovy", "HAML", "Haskell", "Haxe", "HXML", "ASP.NET", "HTML", "HTTP", "IDL", "Pug", "Java", "Java Server Pages", "JavaScript", "JSON", "JSX", "Julia", "Kotlin", "LESS", "LiveScript", "Lua", "Markdown", "mIRC", "MariaDB SQL", "Mathematica", "Modelica", "MUMPS", "MS SQL", "mbox", "MySQL", "Nginx", "NSIS", "NTriples", "Objective-C", "OCaml", "Octave", "Oz", "Pascal", "PEG.js", "Perl", "PHP", "Pig", "Plain Text", "PLSQL", "PowerShell", "Properties files", "ProtoBuf", "Python", "Puppet", "Q", "R", "reStructuredText", "RPM Changes", "RPM Spec", "Ruby", "Rust", "SAS", "Sass", "Scala", "Scheme", "SCSS", "Shell", "Sieve", "Slim", "Smalltalk", "Smarty", "Solr", "SML", "Soy", "SPARQL", "Spreadsheet", "SQL", "SQLite", "Squirrel", "Stylus", "Swift", "sTeX", "LaTeX", "SystemVerilog", "Tcl", "Textile", "TiddlyWiki ", "Tiki wiki", "TOML", "Tornado", "troff", "TTCN", "TTCN_CFG", "Turtle", "TypeScript", "Twig", "Web IDL", "VB.NET", "VBScript", "Velocity", "Verilog", "VHDL", "Vue.js Component", "XML", "XQuery", "Yacas", "YAML", "Z80", "mscgen", "xu", "msgenny"]
 
 const ModelSelect = (props) => {
 
-    const [languagesList, filterlanguagesList] = useState(languages);
+    const [languagesList, filterLanguagesList] = useState(languages);
 
     const onSelect = (d) => (ev) => {
         props.setShow(false);
@@ -21,10 +21,10 @@ const ModelSelect = (props) => {
 
     const filter = (ev) => {
         const value = ev.target.value;
-        if(value){
-            filterlanguagesList(languages.filter(d=>d.toUpperCase().includes(value.toUpperCase())));
-        }else{
-            filterlanguagesList(languages);
+        if (value) {
+            filterLanguagesList(languages.filter(d => d.toUpperCase().includes(value.toUpperCase())));
+        } else {
+            filterLanguagesList(languages);
         }
     }
 
@@ -32,7 +32,7 @@ const ModelSelect = (props) => {
         <div className="model-con" data-show={props.show}>
             <div className="model-list">
                 {
-                    languagesList.map(d=>(<button key={d} data-current={props.language===d} onClick={onSelect(d)}>{d}</button>))
+                    languagesList.map(d => (<button key={d} data-current={props.language === d} onClick={onSelect(d)}>{d}</button>))
                 }
             </div>
             <input className="model-search" onChange={filter} type="text" />
@@ -41,16 +41,15 @@ const ModelSelect = (props) => {
 }
 
 export default (props) => {
-
     const codeEdit = useRef(null);
 
     const textEdit = useRef(null);
 
-    const [codeMode, setcodeMode] = useState(false);
+    const [codeMode, setCodeMode] = useState(false);
 
     const [show, setShow] = useState(false);
 
-    const [language, setlanguage] = useState('JavaScript');
+    const [language, setLanguage] = useState('JavaScript');
 
     const onPaste = (ev) => {
         ev.preventDefault();
@@ -58,7 +57,7 @@ export default (props) => {
     }
 
     const setMode = () => {
-        setcodeMode(!codeMode);
+        setCodeMode(!codeMode);
     }
 
     const selectModle = () => {
@@ -67,39 +66,41 @@ export default (props) => {
 
     const send = () => {
         let value = ''
-        if(codeMode){
+        if (codeMode) {
             value = codeEdit.current.edit.editor.getValue();
-        }else{
+            codeEdit.current.edit.editor.setValue("");
+        } else {
             value = textEdit.current.innerText;
+            textEdit.current.innerText = "";
         }
-        props.onComfirm&&props.onComfirm({
-            message:value,
-            type:codeMode?1:0,
-            language:language
+        props.onConfirm && props.onConfirm({
+            message: value,
+            type: codeMode ? 1 : 0,
+            language: language
         });
     }
 
-    useEffect(()=>{
-        if(props.msg.id){
-            const {language,type,message} = props.msg;
-            setlanguage(language);
-            if(type===1){
-                setcodeMode(true);
+    useEffect(() => {
+        if (props.msg.id) {
+            const { language, type, message } = props.msg;
+            setLanguage(language);
+            if (type === 1) {
+                setCodeMode(true);
                 codeEdit.current.edit.editor.setValue(message);
-            }else{
-                setcodeMode(false);
+            } else {
+                setCodeMode(false);
                 textEdit.current.innerText = message;
             }
         }
-    },[props.msg])
+    }, [props.msg])
 
     const onKeyDown = (ev) => {
         if (ev.keyCode === 13) {
             //enter
-            if(ev.ctrlKey){
+            if (ev.ctrlKey) {
                 // ctrl+enter
-                document.execCommand("insertText",false,"\n");
-            }else{
+                document.execCommand("insertText", false, "\n");
+            } else {
                 // enter
                 ev.preventDefault();
                 send(ev.target.innerText);
@@ -124,7 +125,7 @@ export default (props) => {
         <div className="mes-input-con" data-code-mode={codeMode}>
             <div className="icon-float">
                 <button className="icon-btn" onClick={setMode}>
-                    {codeMode?<MdTextFormat />:<MdCode/>}
+                    {codeMode ? <MdTextFormat /> : <MdCode />}
                 </button>
             </div>
             <div className="mes-input-wrap mes-txt-input-wrap">
@@ -141,7 +142,7 @@ export default (props) => {
                 }
             </div>
             <div className="mes-input-wrap mes-code-input-wrap">
-                <ModelSelect onSelect={setlanguage} show={show} setShow={setShow} language={language} />
+                <ModelSelect onSelect={setLanguage} show={show} setShow={setShow} language={language} />
                 <button className="icon-btn" onClick={selectModle}><span className="icon-lan">{language}</span></button>
                 <CodeInput className="code-edit" language={language} ref={codeEdit} />
                 <div className="icon-group">
