@@ -42,5 +42,13 @@ export default (props) => {
             </div>
        )    
     }
-    return <p className="mes-txt">{props.data.message}</p>
+    return (
+        <div className="mes-inner">
+            <p className="mes-txt">{props.data.message}</p>
+            <div className="mes-action" >
+                <i className="mes-action-btn" onClick={onCopy}><MdContentCopy /></i>
+                <i className="mes-action-btn"><MdReply /></i>
+            </div>
+        </div>
+    )
 }

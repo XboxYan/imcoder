@@ -21,8 +21,7 @@
     line-height: 1.5em;
     flex: 1;
     white-space: pre-wrap;
-    overflow: hidden;
-    padding-right: 40px;
+    width: 300px;
 }
 .mes-avator{
     min-width: 50px;
@@ -50,7 +49,6 @@
     display: none;
 }
 .mes-item[data-self=true] .mes-content{
-    padding-right: 0;
     text-align: right;
 }
 .mes-item[data-self=true] .mes-txt{
@@ -64,6 +62,8 @@
 }
 .mes-inner>pre{
     margin: 0!important;
+    vertical-align: top;
+    min-width: 110px;
     display: inline-block;
     overflow: auto;
     border-radius: 0 10px 10px 10px!important;
@@ -90,12 +90,13 @@
 }
 .mes-action{
     position: absolute;
+    white-space: nowrap;
     box-sizing: border-box;
-    color: var(--fontColor);
-    right: -10px;
+    color: var(--contentbgColor);
+    right: 0;
+    padding-bottom: 10px;
     top: 0;
-    width: 30px;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     opacity: 0;
     transition: .3s;
 }
@@ -106,16 +107,16 @@
     opacity: 1;
 }
 .mes-action-btn{
-    display: flex;
+    display: inline-flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
-    margin-bottom: 10px;
+    margin-left: 10px;
     border-radius: 50%;
     opacity: .6;
-    background: var(--contentbgColor);
+    background: var(--fontColor);
     transition: .3s;
 }
 .mes-action-btn:hover{
